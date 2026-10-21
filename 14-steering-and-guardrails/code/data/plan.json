@@ -1,0 +1,13 @@
+{
+  "task": "Fix duplicate charges on client retry: ChargeService must dedupe on the Idempotency-Key, not the request id.",
+  "files": [
+    "services/payments/idempotency.py",
+    "services/payments/tests/test_idempotency.py"
+  ],
+  "may_create": ["services/payments/tests/test_*.py"],
+  "max_changed_lines": 80,
+  "allow_dependency_changes": false,
+  "allow_test_deletions": false,
+  "edit_limit_per_file": 6,
+  "repeat_failure_limit": 3
+}

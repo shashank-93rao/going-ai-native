@@ -1,0 +1,31 @@
+id = "bug-relay-skips-failure"
+kind = "bug"
+needs = ["tools/lint_invariants.py"]
+prompt = '''
+Bug report from the shipping team: after a broker blip last night, their consumer
+received `OrderCancelled` before `OrderPlaced` for a handful of orders, so it
+dropped the cancels as "unknown order" and shipped them anyway.
+
+Find the cause in this service and fix it so it cannot happen again.
+'''
+
+[[inject]]
+file = "orders/outbox.py"
+find = "            break  # I3: stop at the first failure; skipping ahead reorders events for this key"
+replace = "            continue  # don't let one bad row stall the whole relay"
+
+# A plausible wrong fix: retry the failed publish once inline, which hides the
+# blip in tests that inject a single failure but still skips on a second one.
+[[naive]]
+file = "orders/outbox.py"
+find = '''
+        try:
+            msg = broker.publish(TOPIC, key=aggregate_id, value=value)
+        except BrokerError as e:'''
+replace = '''
+        try:
+            try:
+                msg = broker.publish(TOPIC, key=aggregate_id, value=value)
+            except BrokerError:
+                msg = broker.publish(TOPIC, key=aggregate_id, value=value)  # retry once
+        except BrokerError as e:'''

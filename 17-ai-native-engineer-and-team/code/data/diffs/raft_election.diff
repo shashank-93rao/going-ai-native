@@ -1,0 +1,18 @@
+diff --git a/internal/raft/election.go b/internal/raft/election.go
+index 4e5f6a7..b8c9d0e 100644
+--- a/internal/raft/election.go
++++ b/internal/raft/election.go
+@@ -38,11 +38,9 @@ func (n *Node) handleRequestVote(req *pb.RequestVote) *pb.VoteResponse {
+ 	if req.Term > n.currentTerm {
+ 		n.becomeFollower(req.Term)
+ 	}
+ 	if n.votedFor == "" || n.votedFor == req.CandidateId {
+-		n.votedFor = req.CandidateId
+-		if err := n.storage.PersistHardState(n.currentTerm, n.votedFor); err != nil {
+-			return &pb.VoteResponse{Term: n.currentTerm, Granted: false}
+-		}
++		n.votedFor = req.CandidateId
++		go n.storage.PersistHardState(n.currentTerm, n.votedFor) // persist off the hot path
+ 		return &pb.VoteResponse{Term: n.currentTerm, Granted: true}
+ 	}
+ 	return &pb.VoteResponse{Term: n.currentTerm, Granted: false}

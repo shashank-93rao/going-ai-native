@@ -1,0 +1,98 @@
+id = "feat-currency"
+kind = "feature"
+needs = ["INVARIANTS.md"]
+# The plausible wrong version: everything except adding currency to the hashed body (I2).
+naive_drops = [3]
+prompt = '''
+Support currencies on orders.
+
+- `create_order` takes `currency: str = "USD"`. Valid values are ISO 4217 style:
+  exactly three uppercase ASCII letters. Anything else raises `OrderError`.
+- Store it on the order. Include it in the `create_order` response, in `get_order`,
+  and in the `OrderPlaced` event payload.
+- Existing callers that do not pass a currency keep working unchanged.
+
+Done means `python tools/check.py` passes and the new behaviour has tests.
+'''
+
+[[solution]]
+file = "orders/db.py"
+find = '''
+    status       TEXT NOT NULL
+);'''
+replace = '''
+    status       TEXT NOT NULL,
+    currency     TEXT NOT NULL DEFAULT 'USD'
+);'''
+
+[[solution]]
+file = "orders/api.py"
+find = "def create_order(conn: sqlite3.Connection, idem_key: str, customer_id: str, amount_cents: int) -> dict[str, Any]:"
+replace = '''def create_order(conn: sqlite3.Connection, idem_key: str, customer_id: str, amount_cents: int,
+                 currency: str = "USD") -> dict[str, Any]:'''
+
+[[solution]]
+file = "orders/api.py"
+find = '''
+        raise OrderError("amount_cents must be a positive integer")
+'''
+replace = '''
+        raise OrderError("amount_cents must be a positive integer")
+    if not (isinstance(currency, str) and len(currency) == 3 and currency.isascii()
+            and currency.isalpha() and currency.isupper()):
+        raise OrderError("currency must be three uppercase letters (ISO 4217)")
+'''
+
+[[solution]]
+file = "orders/api.py"
+find = '''    body = {"customer_id": customer_id, "amount_cents": amount_cents}'''
+replace = '''    body = {"customer_id": customer_id, "amount_cents": amount_cents, "currency": currency}'''
+
+[[solution]]
+file = "orders/api.py"
+find = '''
+            "INSERT INTO orders (id, customer_id, amount_cents, status) VALUES (?, ?, ?, 'PLACED')",
+            (order_id, customer_id, amount_cents),'''
+replace = '''
+            "INSERT INTO orders (id, customer_id, amount_cents, status, currency) VALUES (?, ?, ?, 'PLACED', ?)",
+            (order_id, customer_id, amount_cents, currency),'''
+
+[[solution]]
+file = "orders/api.py"
+find = '''_enqueue(conn, order_id, "OrderPlaced", {"order_id": order_id, "customer_id": customer_id, "amount_cents": amount_cents})'''
+replace = '''_enqueue(conn, order_id, "OrderPlaced", {"order_id": order_id, "customer_id": customer_id,
+                                                 "amount_cents": amount_cents, "currency": currency})'''
+
+[[solution]]
+file = "orders/api.py"
+find = '''response = {"order_id": order_id, "customer_id": customer_id, "amount_cents": amount_cents, "status": "PLACED"}'''
+replace = '''response = {"order_id": order_id, "customer_id": customer_id, "amount_cents": amount_cents,
+                    "currency": currency, "status": "PLACED"}'''
+
+[[solution]]
+file = "orders/api.py"
+find = '''
+    row = conn.execute("SELECT id, customer_id, amount_cents, status FROM orders WHERE id = ?", (order_id,)).fetchone()
+    if row is None:
+        raise NotFound(order_id)
+    return dict(zip(("order_id", "customer_id", "amount_cents", "status"), row))'''
+replace = '''
+    row = conn.execute("SELECT id, customer_id, amount_cents, status, currency FROM orders WHERE id = ?",
+                       (order_id,)).fetchone()
+    if row is None:
+        raise NotFound(order_id)
+    return dict(zip(("order_id", "customer_id", "amount_cents", "status", "currency"), row))'''
+
+[[solution]]
+file = "tests/test_currency.py"
+create = '''
+from orders import api
+from orders.db import connect
+
+
+def test_default_currency_is_usd():
+    conn = connect()
+    r = api.create_order(conn, "k1", "c1", 100)
+    assert r["currency"] == "USD"
+    assert api.get_order(conn, r["order_id"])["currency"] == "USD"
+'''

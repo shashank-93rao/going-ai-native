@@ -1,0 +1,11 @@
+diff --git a/config/cluster/prod.yaml b/config/cluster/prod.yaml
+index 7c7c7c7..8d8d8d8 100644
+--- a/config/cluster/prod.yaml
++++ b/config/cluster/prod.yaml
+@@ -1,5 +1,5 @@
+ cluster:
+   voters: 5
+-  election_timeout_ms: 1000
++  election_timeout_ms: 300
+   heartbeat_interval_ms: 100
+   snapshot_every_entries: 50000

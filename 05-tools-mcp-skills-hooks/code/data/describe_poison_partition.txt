@@ -1,0 +1,10 @@
+
+Consumer group 'ledger-writer-v2' has 3 active members.
+
+GROUP            TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                       HOST            CLIENT-ID
+ledger-writer-v2 payments.events 0          10441201        10441321        120             ledger-writer-7d9f-0-3c1e5a2b-91f0-4c7e-a1d2   /10.0.1.7       ledger-writer-7d9f-0
+ledger-writer-v2 payments.events 1          10397710        10397805        95              ledger-writer-7d9f-0-3c1e5a2b-91f0-4c7e-a1d2   /10.0.1.7       ledger-writer-7d9f-0
+ledger-writer-v2 payments.events 2          10410022        10410110        88              ledger-writer-7d9f-1-77ab0c4e-2d19-4b6a-9e03   /10.0.2.4       ledger-writer-7d9f-1
+ledger-writer-v2 payments.events 3          88123401        88171612        48211           ledger-writer-7d9f-1-77ab0c4e-2d19-4b6a-9e03   /10.0.2.4       ledger-writer-7d9f-1
+ledger-writer-v2 payments.events 4          10402998        10403099        101             ledger-writer-7d9f-2-e5d4c3b2-0a19-4f8e-b7c6   /10.0.3.9       ledger-writer-7d9f-2
+ledger-writer-v2 payments.events 5          10388811        10388888        77              ledger-writer-7d9f-2-e5d4c3b2-0a19-4f8e-b7c6   /10.0.3.9       ledger-writer-7d9f-2

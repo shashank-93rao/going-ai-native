@@ -1,0 +1,34 @@
+{
+  "title": "incident-router: ~70% -> ~90%",
+  "repeats": 4,
+  "seed": 1,
+  "min_effect": 0.05,
+  "rules": {"test_ratio": 0.5, "block_leaks": false},
+  "baseline_note": "Sonnet, medium effort, the one-paragraph prompt from the original PR.",
+  "baseline": {"name": "v0-baseline", "model": "claude-sonnet-5-5", "effort": "medium",
+               "sections": ["base"], "tools": [], "extra_prompt": "", "max_tokens": 1024},
+  "rounds": [
+    {"name": "v1-step-by-step",
+     "hypothesis": "Generic reasoning boilerplate helps everywhere. (No error-analysis evidence; included because someone always proposes it.)",
+     "change": {"add_section": "step_by_step"}},
+    {"name": "v2-queue-defs",
+     "hypothesis": "Error analysis: most ambiguous-owner alerts go to the team whose service shows the symptom (payments-api pool exhaustion -> payments). Define queues by owned resource.",
+     "change": {"add_section": "queue_definitions"}},
+    {"name": "v3-fewshot-failures",
+     "hypothesis": "Paste 60 current dev failures with their correct labels as few-shot examples. (The anti-pattern: block_leaks is off for this demo.)",
+     "change": {"paste_dev_failures": 60}},
+    {"name": "v4-tiebreak",
+     "hypothesis": "Error analysis: multi-component alert chains are routed to the first component LISTED, not the earliest failing. Add an explicit timestamp tie-break rule.",
+     "change": {"add_section": "tiebreak"}},
+    {"name": "v5-owner-tool",
+     "hypothesis": "Error analysis: codename services (svc-orion, svc-vega) are guessed. No prompt can fix missing knowledge; give the model a lookup_owner tool over the service catalog.",
+     "change": {"add_tool": "lookup_owner"}},
+    {"name": "v6-effort-sweep",
+     "sweep": [
+       {"name": "v6a-effort-low", "hypothesis": "Effort sweep: low. Cheaper; does accuracy hold?", "change": {"set": {"effort": "low"}}},
+       {"name": "v6b-effort-high", "hypothesis": "Effort sweep: high. Remaining failures are multi-signal alerts that need inference.", "change": {"set": {"effort": "high"}}},
+       {"name": "v6c-effort-xhigh", "hypothesis": "Effort sweep: xhigh. If high helps, does xhigh help more?", "change": {"set": {"effort": "xhigh"}}},
+       {"name": "v6d-effort-max", "hypothesis": "Effort sweep: max. The top of the range.", "change": {"set": {"effort": "max"}}}
+     ]}
+  ]
+}

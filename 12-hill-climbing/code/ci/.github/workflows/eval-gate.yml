@@ -1,0 +1,116 @@
+# Example eval gate for the incident router (Module 12). Copy into your repo's
+# .github/workflows/ and adjust paths. Three tiers, cheapest first:
+#
+#   1. deterministic  every push/PR    unit tests: parser, tool loop, stats, grader   (seconds, $0)
+#   2. mocked         every PR         full eval pipeline against the simulated or    (seconds, $0)
+#                                      replayed model; catches plumbing breaks
+#   3. full           PRs that touch   real model, test split, repeats, CI-aware gate (minutes, $)
+#                     prompts/config,
+#                     label, or nightly
+#
+# The full tier gates on the LOWER bound of the accuracy CI and on a paired,
+# clustered comparison with the committed baseline, not on a point estimate.
+name: eval-gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 3 * * *"   # nightly full run catches model/provider drift with no code change
+  workflow_dispatch:
+
+concurrency:
+  group: eval-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CODE_DIR: 12-hill-climbing/code
+  PYTHONPATH: ${{ github.workspace }}/shared
+
+jobs:
+  deterministic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install anthropic pytest hypothesis
+      - name: Unit tests (offline)
+        env:
+          AINATIVE_FAKE: "1"
+        run: python -m pytest -q "$CODE_DIR"
+
+  mocked:
+    needs: deterministic
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install anthropic
+      - name: Eval pipeline against the simulated model
+        working-directory: ${{ env.CODE_DIR }}
+        env:
+          AINATIVE_FAKE: "1"
+        run: |
+          python ci_gate.py run --config data/climbed_config.json --split test \
+            --repeats 3 --seed 1 --client sim --out mocked_results.json
+          python ci_gate.py check --results mocked_results.json \
+            --baseline ci/baseline_results.json --floor 0.82 --max-drop 0.02
+
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      prompts: ${{ steps.filter.outputs.prompts }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            prompts:
+              - '12-hill-climbing/code/data/prompts/**'
+              - '12-hill-climbing/code/data/climbed_config.json'
+              - '12-hill-climbing/code/incident_router.py'
+
+  full:
+    needs: [mocked, changes]
+    if: >-
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      needs.changes.outputs.prompts == 'true' ||
+      contains(github.event.pull_request.labels.*.name, 'run-evals')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: evals            # holds ANTHROPIC_API_KEY; fork PRs never see it
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install anthropic
+      - name: Full eval against the real model
+        working-directory: ${{ env.CODE_DIR }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python ci_gate.py run --config data/climbed_config.json --split test \
+            --repeats 3 --seed ${{ github.run_number }} --client real --out full_results.json
+      - name: Gate on CIs, not point estimates
+        working-directory: ${{ env.CODE_DIR }}
+        # baseline_real_results.json is produced by the same command on main and committed
+        # (or downloaded from main's last successful run as an artifact).
+        run: |
+          python ci_gate.py check --results full_results.json \
+            --baseline ci/baseline_real_results.json \
+            --floor 0.85 --max-drop 0.02 --max-cost-ratio 1.5
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-results-${{ github.run_number }}
+          path: ${{ env.CODE_DIR }}/full_results.json

@@ -1,0 +1,10 @@
+diff --git a/docs/runbooks/leader-failover.md b/docs/runbooks/leader-failover.md
+index 3b1c2a0..9f0e4d1 100644
+--- a/docs/runbooks/leader-failover.md
++++ b/docs/runbooks/leader-failover.md
+@@ -12,3 +12,4 @@ ## Manual failover
+ 1. Confirm the old leader is fenced: `ledgerctl raft status --node $OLD`.
+-2. Transfer leadership: `ledgerctl raft transfer --to $NEW`.
++2. Transfer leadership: `ledgerctl raft transfer-leader --to $NEW`.
++   The command returns once the new leader has committed a no-op entry.
+ 3. Watch `raft_commit_index` on the new leader for 60 seconds.

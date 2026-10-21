@@ -1,0 +1,6 @@
+# payments-svc runtime deps
+fastapi==0.109.2
+pydantic==2.6.1
+requests==2.31.0
+cryptography==41.0.7
+psycopg[binary]==3.1.18

@@ -1,0 +1,37 @@
+# References
+
+Fetched or checked on 2026-10-19 unless noted otherwise.
+
+## Tracing and conventions
+- **OpenTelemetry GenAI semantic conventions**: https://github.com/open-telemetry/semantic-conventions-genai (docs in `docs/gen-ai/`, with the Anthropic specifics in `docs/gen-ai/anthropic.md`). *Take:* the exact attribute names, requirement levels (content is Opt-In), the `{operation} {model}` span naming, and the Anthropic rule that `gen_ai.usage.input_tokens` = input + cache read + cache write. Status is **Development**, so names may change. The old page at opentelemetry.io/docs/specs/semconv/gen-ai/ now says it is no longer maintained.
+- **Anthropic, "Agent observability on the Claude Platform"** (2026-10-14, public beta): https://claude.com/resources/articles/agent-observability-on-the-claude-platform. *Take:* Claude traces follow the GenAI conventions over OTLP for Managed Agents, the Messages API and the SDKs, and production traces can be turned into evals. The article does not say what content is captured or redacted, so check the platform docs before you rely on it.
+- **OpenAI Agents SDK, tracing**: https://openai.github.io/openai-agents-python/tracing/. *Take:* default span types (agent, generation, function, guardrail, handoff), and the fact that sensitive data is captured by default (`trace_include_sensitive_data`), so redaction has to be your own step. From the course research notes. Not re-fetched for this module.
+
+## Postmortems and drift
+- **Anthropic, "A postmortem of three recent issues"** (2025-09-17): https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues. *Take:* 16% of Sonnet 4 requests affected at the worst hour; evals missed it partly because Claude recovers from isolated mistakes; privacy controls slowed debugging; the commitment to continuous evals on production systems.
+- **Anthropic, "An update on recent Claude Code quality reports"** (2026-04-23): https://www.anthropic.com/engineering/april-23-postmortem. *Take:* the effort-default change, the thinking-history bug and the cache misses it caused, the verbosity line that cost about 3%, and the deploy policy that followed (per-model evals, ablations, model gating, soak periods, gradual rollout).
+- **OpenAI, "Expanding on what we missed with sycophancy"** (2025-05-02): https://openai.com/index/expanding-on-sycophancy/. The page returned 403 to our fetcher. The passages used here were checked against **Simon Willison's quotation of it**: https://simonwillison.net/2025/May/2/what-we-missed-with-sycophancy/. *Take:* offline evals and A/B tests looked fine; expert testers said the model "felt" slightly off; behavioural issues should be launch-blocking.
+- **Shankar et al., "Who Validates the Validators?"** (EvalGen): https://arxiv.org/abs/2404.12272. *Take:* criteria drift, meaning human grading standards change as people see outputs. This is the reason to re-label anchor sets.
+
+## Online evals and feedback
+- **Anthropic, "Demystifying evals for AI agents"**: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents. *Take:* the Swiss-cheese layering (automated evals, production monitoring, A/B tests, user feedback, transcript review), pass@k vs pass^k (75% per trial gives pass^3 ≈ 42%), and grading outcomes rather than paths.
+- **Hamel Husain & Shreya Shankar, AI Evals for Engineers & PMs** (Maven): https://maven.com/parlance-labs/evals. *Take:* the production pattern of code checks on all traffic, frozen judges on a sample and corrected prevalence on dashboards, plus the L9 cost lesson on cascades calibrated against labels. Summarized from the public syllabus in the course research notes.
+- **LangChain Academy, monitoring and LangSmith courses**: https://academy.langchain.com/. *Take:* online evaluators, automations, annotation queues, user-sentiment monitoring and A/B testing modules, if you want a vendor implementation of [02](02-online-evals-and-feedback.md).
+- **Simon Willison** on the same sycophancy episode, and **Eugene Yan, "Patterns for Building LLM-based Systems & Products"**: https://eugeneyan.com/writing/llm-patterns/. *Take:* collecting user feedback and defensive UX belong in the system design.
+
+## Cost, latency, reliability
+- **Anthropic pricing**: https://platform.claude.com/docs/en/about-claude/pricing. *Take:* the rate card in [04](04-cost-and-latency-engineering.md) and `code/pricing.py`, the cache multipliers (writes 1.25x for 5 minutes and 2x for 1 hour; reads 0.1x on most models and 0.05x on Opus 5.5 and Sonnet 5.5), and the 50% Batch discount.
+- **Anthropic prompt caching docs**: https://platform.claude.com/docs/en/build-with-claude/prompt-caching. *Take:* the `tools → system → messages` invalidation hierarchy, minimum cacheable lengths (512 tokens on the 5.x models, with no error below it), the 5-minute TTL refreshed on use, up to 4 breakpoints, automatic caching, and the usage fields.
+- **Anthropic API errors docs**: https://platform.claude.com/docs/en/api/errors. *Take:* which status codes to retry, the spend-cap 429 with no `retry-after`, acceleration limits, the SDK's default 2 retries, the `request-id` header, and streaming or batches for long requests.
+- **OpenAI, "Unrolling the Codex agent loop"**: https://openai.com/index/unrolling-the-codex-agent-loop/. *Take:* exact-prefix caching discipline, the append-only prompt, and the MCP tool-ordering cache-miss bug. From the course research notes. Not re-fetched for this module.
+- **Anthropic, "Automating eval design and hillclimbing with Claude"** (2026-09-28): https://claude.dev/blog/automating-eval-design-and-hillclimbing/. *Take:* the support-bot cost frontier (74.4% at 4.6¢ to 98.9% at about 1¢ on train; 90.5% vs 78.6% on a 14-ticket held-out set at about one fifth of the cost).
+- **Marc Brooker, "Exponential Backoff And Jitter"** (AWS Architecture Blog, 2015): https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/. *Take:* why jitter matters, and the full-jitter vs decorrelated-jitter trade-off.
+- **Google SRE Workbook, "Alerting on SLOs"**: https://sre.google/workbook/alerting-on-slos/. *Take:* the multiwindow, multi-burn-rate table (14.4 at 1h/5m, 6 at 6h/30m, 1 at 3d/6h) and the short-window = 1/12 rule.
+
+## Durable agents and deploys
+- **Anthropic, "Scaling Managed Agents: Decoupling the brain from the hands"** (2026-04-08): https://www.anthropic.com/engineering/managed-agents. *Take:* session, harness and sandbox virtualization; `execute`, `provision`, `wake`, `getSession`, `emitEvent` and `getEvents`; sandboxes as cattle; credentials kept out of the sandbox; TTFT about 60% lower at p50 and over 90% lower at p95.
+- **Anthropic, "How we built our multi-agent research system"** (2025-06-13): https://www.anthropic.com/engineering/multi-agent-research-system. *Take:* rainbow deployments, resuming from the point of failure, and monitoring decision patterns without reading conversation content.
+- **Anthropic, "Building effective agent automations"** (2026-10-08): https://claude.dev/blog/building-effective-agent-automations/. *Take:* idempotency checks for unattended agents, bookmarks rather than time windows, and budget as a pause. From the course research notes.
+
+## Framing
+- **Karpathy on the Dwarkesh Podcast** (2025-10-17): https://www.dwarkesh.com/p/andrej-karpathy. *Take:* the "march of nines". Quotes come from the course research notes' transcript reading.

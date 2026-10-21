@@ -1,0 +1,43 @@
+id = "feat-list-orders"
+kind = "feature"
+needs = ["AGENTS.md"]
+prompt = '''
+Add `list_orders(conn, customer_id, status=None)` to orders/api.py.
+
+- Returns that customer's orders as dicts with the same shape as `get_order`,
+  in the order they were created.
+- `status`, if given, filters to "PLACED" or "CANCELLED". Any other value raises `OrderError`.
+- It is a read: it must not write anything or emit events.
+
+Done means `python tools/check.py` passes and the new behaviour has tests.
+'''
+
+[[solution]]
+file = "orders/api.py"
+append = '''
+def list_orders(conn: sqlite3.Connection, customer_id: str, status: str | None = None) -> list[dict[str, Any]]:
+    """Read-only: a customer's orders in creation order, optionally filtered by status."""
+    if status is not None and status not in ("PLACED", "CANCELLED"):
+        raise OrderError(f"unknown status {status!r}")
+    sql = "SELECT id, customer_id, amount_cents, status FROM orders WHERE customer_id = ?"
+    params: tuple[Any, ...] = (customer_id,)
+    if status is not None:
+        sql += " AND status = ?"
+        params += (status,)
+    rows = conn.execute(sql + " ORDER BY rowid", params).fetchall()
+    return [dict(zip(("order_id", "customer_id", "amount_cents", "status"), r)) for r in rows]
+'''
+
+[[solution]]
+file = "tests/test_list_orders.py"
+create = '''
+from orders import api
+from orders.db import connect
+
+
+def test_list_orders_in_creation_order():
+    conn = connect()
+    a = api.create_order(conn, "k1", "c1", 100)
+    b = api.create_order(conn, "k2", "c1", 200)
+    assert [o["order_id"] for o in api.list_orders(conn, "c1")] == [a["order_id"], b["order_id"]]
+'''

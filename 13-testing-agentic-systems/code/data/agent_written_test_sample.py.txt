@@ -1,0 +1,39 @@
+# A test file in the style coding agents produce when told "add tests for the deploy guard".
+# Hand-written for this course to illustrate the patterns; every test here passes,
+# and none of them can catch a bug in promotion_allowed.
+from unittest.mock import MagicMock
+
+from trajectory_checks import promotion_allowed
+from ops_agent import Step
+
+
+def test_promotion_allowed_runs():
+    steps = [Step("deploy", {"env": "staging"}, {"ok": True})]
+    promotion_allowed(steps, "v2.4.0")
+
+
+def test_promotion_allowed_returns_bool():
+    steps = [Step("deploy", {"env": "staging"}, {"ok": True})]
+    assert isinstance(promotion_allowed(steps, "v2.4.0"), bool)
+
+
+def test_promotion_allowed_is_consistent():
+    steps = [Step("deploy", {"env": "staging"}, {"ok": True})]
+    assert promotion_allowed(steps, "v2.4.0") == promotion_allowed(steps, "v2.4.0")
+
+
+def test_deploy_client_called():
+    client = MagicMock()
+    client.return_value = {"ok": True}
+    assert client() == {"ok": True}
+
+
+def test_handles_errors():
+    try:
+        promotion_allowed(None, "v2.4.0")
+    except Exception:
+        pass
+
+
+def test_happy_path():
+    assert promotion_allowed([], "v2.4.0") is not None or True

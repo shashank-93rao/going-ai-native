@@ -1,0 +1,32 @@
+diff --git a/services/payments/idempotency.py b/services/payments/idempotency.py
+index 7a2e9c0..c41b8d2 100644
+--- a/services/payments/idempotency.py
++++ b/services/payments/idempotency.py
+@@ -21,9 +21,14 @@ class ChargeService:
+     def charge(self, key: str, amount_cents: int) -> ChargeResult:
+-        existing = self.store.get(self._request_id())
+-        if existing:
+-            return existing
+-        result = self.gateway.charge(amount_cents)
+-        self.store.put(self._request_id(), result)
+-        return result
++        with self.store.lock(key):
++            existing = self.store.get(key)
++            if existing is not None:
++                if existing.amount_cents != amount_cents:
++                    raise IdempotencyConflict(key)
++                return existing
++            result = self.gateway.charge(amount_cents)
++            self.store.put(key, result)
++            return result
+diff --git a/services/payments/tests/test_idempotency.py b/services/payments/tests/test_idempotency.py
+index 3f1c2aa..5d7e210 100644
+--- a/services/payments/tests/test_idempotency.py
++++ b/services/payments/tests/test_idempotency.py
+@@ -30,0 +31,6 @@ def test_different_amount_same_key_is_rejected(svc):
++
++
++def test_store_lookup_uses_idempotency_key_not_request_id(svc, gateway):
++    svc.charge(key="k-55", amount_cents=300)
++    svc.charge(key="k-55", amount_cents=300)
++    assert gateway.calls == 1

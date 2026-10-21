@@ -1,0 +1,31 @@
+{"component": "api", "customer_id": "c_101", "event": "order.placed", "idem_key": "idem-0", "level": "info", "order_id": "ord_7e5c29f50d", "ts": 1791943800.004}
+{"component": "api", "customer_id": "c_102", "event": "order.placed", "idem_key": "idem-1", "level": "info", "order_id": "ord_d05b61bd4b", "ts": 1791943820.008}
+{"component": "api", "customer_id": "c_103", "event": "order.placed", "idem_key": "idem-2", "level": "info", "order_id": "ord_308f7dc449", "ts": 1791943840.012}
+{"component": "api", "customer_id": "c_101", "event": "order.placed", "idem_key": "idem-3", "level": "info", "order_id": "ord_a56b540d7f", "ts": 1791943860.016}
+{"component": "api", "customer_id": "c_102", "event": "order.placed", "idem_key": "idem-4", "level": "info", "order_id": "ord_7a5796fe9f", "ts": 1791943880.02}
+{"component": "relay", "event": "event.published", "event_id": "1", "level": "info", "offset": 0, "order_id": "ord_7e5c29f50d", "partition": 0, "ts": 1791943900.028, "type": "OrderPlaced"}
+{"component": "relay", "event": "event.published", "event_id": "2", "level": "info", "offset": 0, "order_id": "ord_d05b61bd4b", "partition": 2, "ts": 1791943900.036, "type": "OrderPlaced"}
+{"component": "relay", "event": "event.published", "event_id": "3", "level": "info", "offset": 1, "order_id": "ord_308f7dc449", "partition": 2, "ts": 1791943900.044, "type": "OrderPlaced"}
+{"component": "relay", "event": "event.published", "event_id": "4", "level": "info", "offset": 2, "order_id": "ord_a56b540d7f", "partition": 2, "ts": 1791943900.052, "type": "OrderPlaced"}
+{"component": "relay", "event": "event.published", "event_id": "5", "level": "info", "offset": 0, "order_id": "ord_7a5796fe9f", "partition": 1, "ts": 1791943900.06, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "1", "level": "info", "offset": 0, "order_id": "ord_7e5c29f50d", "partition": 0, "ts": 1791943900.064, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "5", "level": "info", "offset": 0, "order_id": "ord_7a5796fe9f", "partition": 1, "ts": 1791943900.068, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "2", "level": "info", "offset": 0, "order_id": "ord_d05b61bd4b", "partition": 2, "ts": 1791943900.072, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "3", "level": "info", "offset": 1, "order_id": "ord_308f7dc449", "partition": 2, "ts": 1791943900.076, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "4", "level": "info", "offset": 2, "order_id": "ord_a56b540d7f", "partition": 2, "ts": 1791943900.08, "type": "OrderPlaced"}
+{"component": "api", "customer_id": "c_103", "event": "order.placed", "idem_key": "idem-5", "level": "info", "order_id": "ord_d61f37e394", "ts": 1791943960.084}
+{"component": "api", "customer_id": "c_101", "event": "order.placed", "idem_key": "idem-6", "level": "info", "order_id": "ord_5492bc16dc", "ts": 1791943960.088}
+{"component": "api", "customer_id": "c_102", "event": "order.placed", "idem_key": "idem-7", "level": "info", "order_id": "ord_a997ad4fc1", "ts": 1791943960.092}
+{"component": "relay", "event": "event.published", "event_id": "6", "level": "info", "offset": 1, "order_id": "ord_d61f37e394", "partition": 0, "ts": 1791943960.1, "type": "OrderPlaced"}
+{"component": "relay", "event": "event.published", "event_id": "7", "level": "info", "offset": 3, "order_id": "ord_5492bc16dc", "partition": 2, "ts": 1791943960.108, "type": "OrderPlaced"}
+{"component": "relay", "event": "event.published", "event_id": "8", "level": "info", "offset": 1, "order_id": "ord_a997ad4fc1", "partition": 1, "ts": 1791943960.116, "type": "OrderPlaced"}
+{"component": "relay", "event": "process.killed", "exit_code": 137, "level": "error", "reason": "OOMKilled", "ts": 1791943960.12}
+{"component": "relay", "event": "process.started", "level": "info", "reason": "restart", "ts": 1791944005.124}
+{"component": "relay", "event": "event.published", "event_id": "6", "level": "info", "offset": 2, "order_id": "ord_d61f37e394", "partition": 0, "ts": 1791944005.132, "type": "OrderPlaced"}
+{"component": "relay", "event": "event.published", "event_id": "7", "level": "info", "offset": 4, "order_id": "ord_5492bc16dc", "partition": 2, "ts": 1791944005.14, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "6", "level": "info", "offset": 1, "order_id": "ord_d61f37e394", "partition": 0, "ts": 1791944005.144, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "6", "level": "info", "offset": 2, "order_id": "ord_d61f37e394", "partition": 0, "ts": 1791944005.148, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "8", "level": "info", "offset": 1, "order_id": "ord_a997ad4fc1", "partition": 1, "ts": 1791944005.152, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "7", "level": "info", "offset": 3, "order_id": "ord_5492bc16dc", "partition": 2, "ts": 1791944005.156, "type": "OrderPlaced"}
+{"component": "consumer", "event": "event.applied", "event_id": "7", "level": "info", "offset": 4, "order_id": "ord_5492bc16dc", "partition": 2, "ts": 1791944005.16, "type": "OrderPlaced"}
+{"component": "api", "event": "idempotency.replay", "idem_key": "idem-5", "level": "info", "ts": 1791944005.164}

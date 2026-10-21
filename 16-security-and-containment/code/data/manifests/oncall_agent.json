@@ -1,0 +1,22 @@
+{
+  "agent": "oncall-k8s-agent",
+  "servers": [
+    {"name": "k8s", "tools": [
+      {"name": "kubectl_read", "legs": ["private", "untrusted"],
+       "note": "get/describe/logs; logs and annotations contain user-controlled strings"},
+      {"name": "kubectl_write", "legs": [], "note": "rollout restart/scale; integrity risk, not a trifecta leg"}
+    ]},
+    {"name": "observability", "tools": [
+      {"name": "query_logs", "legs": ["private", "untrusted"], "note": "request paths and UAs are attacker text"},
+      {"name": "query_metrics", "legs": ["private"]}
+    ]},
+    {"name": "slack-mcp", "tools": [
+      {"name": "read_channel", "legs": ["untrusted"], "note": "any workspace member, plus shared channels"},
+      {"name": "post_message", "legs": ["exfil"], "note": "shared channels include external orgs"}
+    ]},
+    {"name": "web", "tools": [
+      {"name": "fetch_url", "legs": ["untrusted", "exfil"], "mitigation": {"exfil": "prompt_says_dont"},
+       "note": "GET with query string is an exfil channel"}
+    ]}
+  ]
+}

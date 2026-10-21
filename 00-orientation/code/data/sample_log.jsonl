@@ -1,0 +1,211 @@
+{"est_minutes": 181, "event": "register", "kind": "bugfix", "size": "M", "task_id": "T-001", "title": "synthetic M task 1", "ts": "2026-09-01T09:00:00+00:00"}
+{"arm": "no_ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-001", "ts": "2026-09-01T09:00:00+00:00"}
+{"event": "start", "task_id": "T-001", "ts": "2026-09-01T09:05:00+00:00"}
+{"active_minutes": 154, "event": "merge", "pr": "#1000", "task_id": "T-001", "ts": "2026-09-01T12:22:06+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 119.6, "task_id": "T-001", "ts": "2026-09-01T12:22:06+00:00"}
+{"event": "rework", "minutes": 43, "rework_kind": "fix", "task_id": "T-001", "ts": "2026-09-06T20:03:50+00:00"}
+{"est_minutes": 162, "event": "register", "kind": "migration", "size": "M", "task_id": "T-002", "title": "synthetic M task 2", "ts": "2026-09-01T12:52:06+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-002", "ts": "2026-09-01T12:52:06+00:00"}
+{"event": "start", "task_id": "T-002", "ts": "2026-09-01T12:57:06+00:00"}
+{"active_minutes": 212, "event": "merge", "pr": "#1001", "task_id": "T-002", "ts": "2026-09-01T16:44:12+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 229.0, "task_id": "T-002", "ts": "2026-09-01T16:44:12+00:00"}
+{"est_minutes": 615, "event": "register", "kind": "migration", "size": "L", "task_id": "T-003", "title": "synthetic L task 3", "ts": "2026-09-01T17:14:12+00:00"}
+{"arm": "no_ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-003", "ts": "2026-09-01T17:14:12+00:00"}
+{"event": "start", "task_id": "T-003", "ts": "2026-09-01T17:19:12+00:00"}
+{"active_minutes": 498, "event": "merge", "pr": "#1002", "task_id": "T-003", "ts": "2026-09-02T03:25:22+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 480.8, "task_id": "T-003", "ts": "2026-09-02T03:25:22+00:00"}
+{"event": "rework", "minutes": 152, "rework_kind": "revert", "task_id": "T-003", "ts": "2026-09-06T14:59:11+00:00"}
+{"est_minutes": 113, "event": "register", "kind": "bugfix", "size": "M", "task_id": "T-004", "title": "synthetic M task 4", "ts": "2026-09-02T03:55:22+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-004", "ts": "2026-09-02T03:55:22+00:00"}
+{"event": "start", "task_id": "T-004", "ts": "2026-09-02T04:00:22+00:00"}
+{"active_minutes": 102, "event": "merge", "pr": "#1003", "task_id": "T-004", "ts": "2026-09-02T06:37:00+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 113.9, "task_id": "T-004", "ts": "2026-09-02T06:37:00+00:00"}
+{"est_minutes": 35, "event": "register", "kind": "migration", "size": "S", "task_id": "T-005", "title": "synthetic S task 5", "ts": "2026-09-02T07:07:00+00:00"}
+{"arm": "ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-005", "ts": "2026-09-02T07:07:00+00:00"}
+{"event": "start", "task_id": "T-005", "ts": "2026-09-02T07:12:00+00:00"}
+{"active_minutes": 32, "event": "merge", "pr": "#1004", "task_id": "T-005", "ts": "2026-09-02T08:31:47+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 41.8, "task_id": "T-005", "ts": "2026-09-02T08:31:47+00:00"}
+{"est_minutes": 136, "event": "register", "kind": "feature", "size": "M", "task_id": "T-006", "title": "synthetic M task 6", "ts": "2026-09-02T09:01:47+00:00"}
+{"arm": "no_ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-006", "ts": "2026-09-02T09:01:47+00:00"}
+{"event": "start", "task_id": "T-006", "ts": "2026-09-02T09:06:47+00:00"}
+{"active_minutes": 182, "event": "merge", "pr": "#1005", "task_id": "T-006", "ts": "2026-09-02T13:41:57+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 176.7, "task_id": "T-006", "ts": "2026-09-02T13:41:57+00:00"}
+{"est_minutes": 147, "event": "register", "kind": "bugfix", "size": "M", "task_id": "T-007", "title": "synthetic M task 7", "ts": "2026-09-02T14:11:57+00:00"}
+{"arm": "no_ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-007", "ts": "2026-09-02T14:11:57+00:00"}
+{"event": "start", "task_id": "T-007", "ts": "2026-09-02T14:16:57+00:00"}
+{"active_minutes": 98, "event": "merge", "pr": "#1006", "task_id": "T-007", "ts": "2026-09-02T16:22:26+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 88.4, "task_id": "T-007", "ts": "2026-09-02T16:22:26+00:00"}
+{"event": "rework", "minutes": 86, "rework_kind": "fix", "task_id": "T-007", "ts": "2026-09-07T19:51:27+00:00"}
+{"est_minutes": 46, "event": "register", "kind": "refactor", "size": "S", "task_id": "T-008", "title": "synthetic S task 8", "ts": "2026-09-02T16:52:26+00:00"}
+{"arm": "no_ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-008", "ts": "2026-09-02T16:52:26+00:00"}
+{"event": "start", "task_id": "T-008", "ts": "2026-09-02T16:57:26+00:00"}
+{"active_minutes": 24, "event": "merge", "pr": "#1007", "task_id": "T-008", "ts": "2026-09-02T18:13:20+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 22.2, "task_id": "T-008", "ts": "2026-09-02T18:13:20+00:00"}
+{"est_minutes": 58, "event": "register", "kind": "migration", "size": "S", "task_id": "T-009", "title": "synthetic S task 9", "ts": "2026-09-02T18:43:20+00:00"}
+{"arm": "no_ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-009", "ts": "2026-09-02T18:43:20+00:00"}
+{"event": "start", "task_id": "T-009", "ts": "2026-09-02T18:48:20+00:00"}
+{"active_minutes": 21, "event": "merge", "pr": "#1008", "task_id": "T-009", "ts": "2026-09-03T00:05:16+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 18.6, "task_id": "T-009", "ts": "2026-09-03T00:05:16+00:00"}
+{"est_minutes": 696, "event": "register", "kind": "refactor", "size": "L", "task_id": "T-010", "title": "synthetic L task 10", "ts": "2026-09-03T00:35:16+00:00"}
+{"arm": "ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-010", "ts": "2026-09-03T00:35:16+00:00"}
+{"event": "start", "task_id": "T-010", "ts": "2026-09-03T00:40:16+00:00"}
+{"active_minutes": 795, "event": "merge", "pr": "#1009", "task_id": "T-010", "ts": "2026-09-03T16:33:07+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 908.3, "task_id": "T-010", "ts": "2026-09-03T16:33:07+00:00"}
+{"est_minutes": 158, "event": "register", "kind": "bugfix", "size": "M", "task_id": "T-011", "title": "synthetic M task 11", "ts": "2026-09-03T17:03:07+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-011", "ts": "2026-09-03T17:03:07+00:00"}
+{"event": "start", "task_id": "T-011", "ts": "2026-09-03T17:08:07+00:00"}
+{"active_minutes": 233, "event": "merge", "pr": "#1010", "task_id": "T-011", "ts": "2026-09-03T22:07:25+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 369.8, "task_id": "T-011", "ts": "2026-09-03T22:07:25+00:00"}
+{"est_minutes": 182, "event": "register", "kind": "test-flake", "size": "M", "task_id": "T-012", "title": "synthetic M task 12", "ts": "2026-09-03T22:37:25+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-012", "ts": "2026-09-03T22:37:25+00:00"}
+{"event": "start", "task_id": "T-012", "ts": "2026-09-03T22:42:25+00:00"}
+{"active_minutes": 282, "event": "merge", "pr": "#1011", "task_id": "T-012", "ts": "2026-09-04T06:00:33+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 397.1, "task_id": "T-012", "ts": "2026-09-04T06:00:33+00:00"}
+{"est_minutes": 408, "event": "register", "kind": "migration", "size": "L", "task_id": "T-013", "title": "synthetic L task 13", "ts": "2026-09-04T06:30:33+00:00"}
+{"arm": "ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-013", "ts": "2026-09-04T06:30:33+00:00"}
+{"event": "start", "task_id": "T-013", "ts": "2026-09-04T06:35:33+00:00"}
+{"active_minutes": 617, "event": "merge", "pr": "#1012", "task_id": "T-013", "ts": "2026-09-04T18:52:38+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 831.7, "task_id": "T-013", "ts": "2026-09-04T18:52:38+00:00"}
+{"est_minutes": 66, "event": "register", "kind": "feature", "size": "S", "task_id": "T-014", "title": "synthetic S task 14", "ts": "2026-09-04T19:22:38+00:00"}
+{"arm": "ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-014", "ts": "2026-09-04T19:22:38+00:00"}
+{"event": "start", "task_id": "T-014", "ts": "2026-09-04T19:27:38+00:00"}
+{"active_minutes": 84, "event": "merge", "pr": "#1013", "task_id": "T-014", "ts": "2026-09-05T00:18:30+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 105.1, "task_id": "T-014", "ts": "2026-09-05T00:18:30+00:00"}
+{"est_minutes": 460, "event": "register", "kind": "test-flake", "size": "L", "task_id": "T-015", "title": "synthetic L task 15", "ts": "2026-09-05T00:48:30+00:00"}
+{"arm": "no_ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-015", "ts": "2026-09-05T00:48:30+00:00"}
+{"event": "start", "task_id": "T-015", "ts": "2026-09-05T00:53:30+00:00"}
+{"active_minutes": 582, "event": "merge", "pr": "#1014", "task_id": "T-015", "ts": "2026-09-05T11:18:06+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 379.6, "task_id": "T-015", "ts": "2026-09-05T11:18:06+00:00"}
+{"est_minutes": 509, "event": "register", "kind": "migration", "size": "L", "task_id": "T-016", "title": "synthetic L task 16", "ts": "2026-09-05T11:48:06+00:00"}
+{"arm": "ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-016", "ts": "2026-09-05T11:48:06+00:00"}
+{"event": "start", "task_id": "T-016", "ts": "2026-09-05T11:53:06+00:00"}
+{"active_minutes": 376, "event": "merge", "pr": "#1015", "task_id": "T-016", "ts": "2026-09-05T18:49:37+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 478.6, "task_id": "T-016", "ts": "2026-09-05T18:49:37+00:00"}
+{"event": "rework", "minutes": 135, "rework_kind": "followup", "task_id": "T-016", "ts": "2026-09-15T15:19:53+00:00"}
+{"est_minutes": 139, "event": "register", "kind": "test-flake", "size": "M", "task_id": "T-017", "title": "synthetic M task 17", "ts": "2026-09-05T19:19:37+00:00"}
+{"arm": "no_ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-017", "ts": "2026-09-05T19:19:37+00:00"}
+{"event": "start", "task_id": "T-017", "ts": "2026-09-05T19:24:37+00:00"}
+{"active_minutes": 121, "event": "merge", "pr": "#1016", "task_id": "T-017", "ts": "2026-09-06T00:11:45+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 105.6, "task_id": "T-017", "ts": "2026-09-06T00:11:45+00:00"}
+{"event": "rework", "minutes": 49, "rework_kind": "revert", "task_id": "T-017", "ts": "2026-09-14T19:32:37+00:00"}
+{"est_minutes": 479, "event": "register", "kind": "refactor", "size": "L", "task_id": "T-018", "title": "synthetic L task 18", "ts": "2026-09-06T00:41:45+00:00"}
+{"arm": "no_ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-018", "ts": "2026-09-06T00:41:45+00:00"}
+{"event": "start", "task_id": "T-018", "ts": "2026-09-06T00:46:45+00:00"}
+{"active_minutes": 760, "event": "merge", "pr": "#1017", "task_id": "T-018", "ts": "2026-09-06T16:26:32+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 682.0, "task_id": "T-018", "ts": "2026-09-06T16:26:32+00:00"}
+{"est_minutes": 138, "event": "register", "kind": "bugfix", "size": "M", "task_id": "T-019", "title": "synthetic M task 19", "ts": "2026-09-06T16:56:32+00:00"}
+{"arm": "no_ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-019", "ts": "2026-09-06T16:56:32+00:00"}
+{"event": "start", "task_id": "T-019", "ts": "2026-09-06T17:01:32+00:00"}
+{"active_minutes": 141, "event": "merge", "pr": "#1018", "task_id": "T-019", "ts": "2026-09-06T20:47:34+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 95.0, "task_id": "T-019", "ts": "2026-09-06T20:47:34+00:00"}
+{"est_minutes": 780, "event": "register", "kind": "test-flake", "size": "L", "task_id": "T-020", "title": "synthetic L task 20", "ts": "2026-09-06T21:17:34+00:00"}
+{"arm": "ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-020", "ts": "2026-09-06T21:17:34+00:00"}
+{"event": "start", "task_id": "T-020", "ts": "2026-09-06T21:22:34+00:00"}
+{"active_minutes": 1109, "event": "merge", "pr": "#1019", "task_id": "T-020", "ts": "2026-09-07T16:38:34+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 1017.8, "task_id": "T-020", "ts": "2026-09-07T16:38:34+00:00"}
+{"est_minutes": 223, "event": "register", "kind": "refactor", "size": "M", "task_id": "T-021", "title": "synthetic M task 21", "ts": "2026-09-07T17:08:34+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-021", "ts": "2026-09-07T17:08:34+00:00"}
+{"event": "start", "task_id": "T-021", "ts": "2026-09-07T17:13:34+00:00"}
+{"active_minutes": 232, "event": "merge", "pr": "#1020", "task_id": "T-021", "ts": "2026-09-07T23:54:07+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 268.3, "task_id": "T-021", "ts": "2026-09-07T23:54:07+00:00"}
+{"est_minutes": 496, "event": "register", "kind": "feature", "size": "L", "task_id": "T-022", "title": "synthetic L task 22", "ts": "2026-09-08T00:24:07+00:00"}
+{"arm": "no_ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-022", "ts": "2026-09-08T00:24:07+00:00"}
+{"event": "start", "task_id": "T-022", "ts": "2026-09-08T00:29:07+00:00"}
+{"active_minutes": 319, "event": "merge", "pr": "#1021", "task_id": "T-022", "ts": "2026-09-08T07:52:44+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 199.9, "task_id": "T-022", "ts": "2026-09-08T07:52:44+00:00"}
+{"event": "rework", "minutes": 246, "rework_kind": "followup", "task_id": "T-022", "ts": "2026-09-11T02:27:34+00:00"}
+{"est_minutes": 48, "event": "register", "kind": "bugfix", "size": "S", "task_id": "T-023", "title": "synthetic S task 23", "ts": "2026-09-08T08:22:44+00:00"}
+{"arm": "ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-023", "ts": "2026-09-08T08:22:44+00:00"}
+{"event": "start", "task_id": "T-023", "ts": "2026-09-08T08:27:44+00:00"}
+{"active_minutes": 100, "event": "merge", "pr": "#1022", "task_id": "T-023", "ts": "2026-09-08T12:00:40+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 106.2, "task_id": "T-023", "ts": "2026-09-08T12:00:40+00:00"}
+{"event": "rework", "minutes": 18, "rework_kind": "followup", "task_id": "T-023", "ts": "2026-09-14T17:58:58+00:00"}
+{"est_minutes": 789, "event": "register", "kind": "refactor", "size": "L", "task_id": "T-024", "title": "synthetic L task 24", "ts": "2026-09-08T12:30:40+00:00"}
+{"arm": "no_ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-024", "ts": "2026-09-08T12:30:40+00:00"}
+{"event": "start", "task_id": "T-024", "ts": "2026-09-08T12:35:40+00:00"}
+{"active_minutes": 718, "event": "merge", "pr": "#1023", "task_id": "T-024", "ts": "2026-09-09T03:39:19+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 635.9, "task_id": "T-024", "ts": "2026-09-09T03:39:19+00:00"}
+{"est_minutes": 111, "event": "register", "kind": "bugfix", "size": "M", "task_id": "T-025", "title": "synthetic M task 25", "ts": "2026-09-09T04:09:19+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-025", "ts": "2026-09-09T04:09:19+00:00"}
+{"event": "start", "task_id": "T-025", "ts": "2026-09-09T04:14:19+00:00"}
+{"active_minutes": 62, "event": "merge", "pr": "#1024", "task_id": "T-025", "ts": "2026-09-09T05:55:44+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 62.0, "task_id": "T-025", "ts": "2026-09-09T05:55:44+00:00"}
+{"event": "rework", "minutes": 57, "rework_kind": "followup", "task_id": "T-025", "ts": "2026-09-16T00:32:33+00:00"}
+{"est_minutes": 40, "event": "register", "kind": "refactor", "size": "S", "task_id": "T-026", "title": "synthetic S task 26", "ts": "2026-09-09T06:25:44+00:00"}
+{"arm": "no_ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-026", "ts": "2026-09-09T06:25:44+00:00"}
+{"event": "start", "task_id": "T-026", "ts": "2026-09-09T06:30:44+00:00"}
+{"active_minutes": 41, "event": "merge", "pr": "#1025", "task_id": "T-026", "ts": "2026-09-09T12:13:12+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 30.7, "task_id": "T-026", "ts": "2026-09-09T12:13:12+00:00"}
+{"est_minutes": 650, "event": "register", "kind": "feature", "size": "L", "task_id": "T-027", "title": "synthetic L task 27", "ts": "2026-09-09T12:43:12+00:00"}
+{"arm": "ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-027", "ts": "2026-09-09T12:43:12+00:00"}
+{"event": "start", "task_id": "T-027", "ts": "2026-09-09T12:48:12+00:00"}
+{"active_minutes": 594, "event": "merge", "pr": "#1026", "task_id": "T-027", "ts": "2026-09-10T03:00:47+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 769.2, "task_id": "T-027", "ts": "2026-09-10T03:00:47+00:00"}
+{"est_minutes": 602, "event": "register", "kind": "migration", "size": "L", "task_id": "T-028", "title": "synthetic L task 28", "ts": "2026-09-10T03:30:47+00:00"}
+{"arm": "ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-028", "ts": "2026-09-10T03:30:47+00:00"}
+{"event": "start", "task_id": "T-028", "ts": "2026-09-10T03:35:47+00:00"}
+{"active_minutes": 1508, "event": "merge", "pr": "#1027", "task_id": "T-028", "ts": "2026-09-11T05:33:37+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 2196.4, "task_id": "T-028", "ts": "2026-09-11T05:33:37+00:00"}
+{"event": "rework", "minutes": 277, "rework_kind": "revert", "task_id": "T-028", "ts": "2026-09-11T20:48:27+00:00"}
+{"est_minutes": 480, "event": "register", "kind": "feature", "size": "L", "task_id": "T-029", "title": "synthetic L task 29", "ts": "2026-09-11T06:03:37+00:00"}
+{"arm": "no_ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-029", "ts": "2026-09-11T06:03:37+00:00"}
+{"event": "start", "task_id": "T-029", "ts": "2026-09-11T06:08:37+00:00"}
+{"active_minutes": 365, "event": "merge", "pr": "#1028", "task_id": "T-029", "ts": "2026-09-11T13:57:50+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 326.1, "task_id": "T-029", "ts": "2026-09-11T13:57:50+00:00"}
+{"est_minutes": 46, "event": "register", "kind": "test-flake", "size": "S", "task_id": "T-030", "title": "synthetic S task 30", "ts": "2026-09-11T14:27:50+00:00"}
+{"arm": "ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-030", "ts": "2026-09-11T14:27:50+00:00"}
+{"event": "start", "task_id": "T-030", "ts": "2026-09-11T14:32:50+00:00"}
+{"active_minutes": 35, "event": "merge", "pr": "#1029", "task_id": "T-030", "ts": "2026-09-11T20:04:33+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 55.6, "task_id": "T-030", "ts": "2026-09-11T20:04:33+00:00"}
+{"est_minutes": 124, "event": "register", "kind": "test-flake", "size": "M", "task_id": "T-031", "title": "synthetic M task 31", "ts": "2026-09-11T20:34:33+00:00"}
+{"arm": "no_ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-031", "ts": "2026-09-11T20:34:33+00:00"}
+{"event": "start", "task_id": "T-031", "ts": "2026-09-11T20:39:33+00:00"}
+{"active_minutes": 57, "event": "merge", "pr": "#1030", "task_id": "T-031", "ts": "2026-09-12T01:00:37+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 41.5, "task_id": "T-031", "ts": "2026-09-12T01:00:37+00:00"}
+{"est_minutes": 320, "event": "register", "kind": "feature", "size": "L", "task_id": "T-032", "title": "synthetic L task 32", "ts": "2026-09-12T01:30:37+00:00"}
+{"arm": "no_ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-032", "ts": "2026-09-12T01:30:37+00:00"}
+{"event": "start", "task_id": "T-032", "ts": "2026-09-12T01:35:37+00:00"}
+{"active_minutes": 299, "event": "merge", "pr": "#1031", "task_id": "T-032", "ts": "2026-09-12T08:11:48+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 220.0, "task_id": "T-032", "ts": "2026-09-12T08:11:48+00:00"}
+{"event": "rework", "minutes": 135, "rework_kind": "fix", "task_id": "T-032", "ts": "2026-09-18T17:21:07+00:00"}
+{"est_minutes": 136, "event": "register", "kind": "migration", "size": "M", "task_id": "T-033", "title": "synthetic M task 33", "ts": "2026-09-12T08:41:48+00:00"}
+{"arm": "no_ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-033", "ts": "2026-09-12T08:41:48+00:00"}
+{"event": "start", "task_id": "T-033", "ts": "2026-09-12T08:46:48+00:00"}
+{"active_minutes": 77, "event": "merge", "pr": "#1032", "task_id": "T-033", "ts": "2026-09-12T13:25:41+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 69.7, "task_id": "T-033", "ts": "2026-09-12T13:25:41+00:00"}
+{"est_minutes": 164, "event": "register", "kind": "migration", "size": "M", "task_id": "T-034", "title": "synthetic M task 34", "ts": "2026-09-12T13:55:41+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-034", "ts": "2026-09-12T13:55:41+00:00"}
+{"event": "start", "task_id": "T-034", "ts": "2026-09-12T14:00:41+00:00"}
+{"active_minutes": 207, "event": "merge", "pr": "#1033", "task_id": "T-034", "ts": "2026-09-12T19:07:59+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 185.7, "task_id": "T-034", "ts": "2026-09-12T19:07:59+00:00"}
+{"est_minutes": 628, "event": "register", "kind": "feature", "size": "L", "task_id": "T-035", "title": "synthetic L task 35", "ts": "2026-09-12T19:37:59+00:00"}
+{"arm": "ai", "block": "L", "event": "assign", "seed_id": "7a32254e", "task_id": "T-035", "ts": "2026-09-12T19:37:59+00:00"}
+{"event": "start", "task_id": "T-035", "ts": "2026-09-12T19:42:59+00:00"}
+{"active_minutes": 667, "event": "merge", "pr": "#1034", "task_id": "T-035", "ts": "2026-09-13T07:25:19+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 880.9, "task_id": "T-035", "ts": "2026-09-13T07:25:19+00:00"}
+{"est_minutes": 40, "event": "register", "kind": "refactor", "size": "S", "task_id": "T-036", "title": "synthetic S task 36", "ts": "2026-09-13T07:55:19+00:00"}
+{"arm": "no_ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-036", "ts": "2026-09-13T07:55:19+00:00"}
+{"event": "start", "task_id": "T-036", "ts": "2026-09-13T08:00:19+00:00"}
+{"active_minutes": 15, "event": "merge", "pr": "#1035", "task_id": "T-036", "ts": "2026-09-13T10:32:22+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 11.3, "task_id": "T-036", "ts": "2026-09-13T10:32:22+00:00"}
+{"est_minutes": 175, "event": "register", "kind": "bugfix", "size": "M", "task_id": "T-037", "title": "synthetic M task 37", "ts": "2026-09-13T11:02:22+00:00"}
+{"arm": "ai", "block": "M", "event": "assign", "seed_id": "7a32254e", "task_id": "T-037", "ts": "2026-09-13T11:02:22+00:00"}
+{"event": "start", "task_id": "T-037", "ts": "2026-09-13T11:07:22+00:00"}
+{"active_minutes": 303, "event": "merge", "pr": "#1036", "task_id": "T-037", "ts": "2026-09-13T17:05:15+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 396.5, "task_id": "T-037", "ts": "2026-09-13T17:05:15+00:00"}
+{"est_minutes": 49, "event": "register", "kind": "refactor", "size": "S", "task_id": "T-038", "title": "synthetic S task 38", "ts": "2026-09-13T17:35:15+00:00"}
+{"arm": "no_ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-038", "ts": "2026-09-13T17:35:15+00:00"}
+{"event": "start", "task_id": "T-038", "ts": "2026-09-13T17:40:15+00:00"}
+{"active_minutes": 41, "event": "merge", "pr": "#1037", "task_id": "T-038", "ts": "2026-09-14T01:26:41+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 25.5, "task_id": "T-038", "ts": "2026-09-14T01:26:41+00:00"}
+{"est_minutes": 37, "event": "register", "kind": "feature", "size": "S", "task_id": "T-039", "title": "synthetic S task 39", "ts": "2026-09-14T01:56:41+00:00"}
+{"arm": "ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-039", "ts": "2026-09-14T01:56:41+00:00"}
+{"event": "start", "task_id": "T-039", "ts": "2026-09-14T02:01:41+00:00"}
+{"active_minutes": 63, "event": "merge", "pr": "#1038", "task_id": "T-039", "ts": "2026-09-14T03:41:59+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 84.6, "task_id": "T-039", "ts": "2026-09-14T03:41:59+00:00"}
+{"est_minutes": 43, "event": "register", "kind": "refactor", "size": "S", "task_id": "T-040", "title": "synthetic S task 40", "ts": "2026-09-14T04:11:59+00:00"}
+{"arm": "no_ai", "block": "S", "event": "assign", "seed_id": "7a32254e", "task_id": "T-040", "ts": "2026-09-14T04:11:59+00:00"}
+{"event": "start", "task_id": "T-040", "ts": "2026-09-14T04:16:59+00:00"}
+{"active_minutes": 51, "event": "merge", "pr": "#1039", "task_id": "T-040", "ts": "2026-09-14T05:47:32+00:00"}
+{"event": "perceive", "perceived_other_arm_minutes": 38.4, "task_id": "T-040", "ts": "2026-09-14T05:47:32+00:00"}
+{"event": "rework", "minutes": 14, "rework_kind": "revert", "task_id": "T-040", "ts": "2026-09-17T21:22:25+00:00"}

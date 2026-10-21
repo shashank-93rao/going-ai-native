@@ -1,0 +1,9 @@
+[
+  {"id": "ADV-COURSE-001", "ecosystem": "pypi", "package": "requests", "fixed_in": "2.32.0", "summary": "Session verify=False persists across requests to the same host"},
+  {"id": "ADV-COURSE-002", "ecosystem": "pypi", "package": "cryptography", "fixed_in": "42.0.0", "summary": "NULL dereference in PKCS12 parsing"},
+  {"id": "ADV-COURSE-003", "ecosystem": "pypi", "package": "jinja2", "fixed_in": "3.1.3", "summary": "XSS via xmlattr filter"},
+  {"id": "ADV-COURSE-004", "ecosystem": "go", "package": "golang.org/x/net", "fixed_in": "0.23.0", "summary": "HTTP/2 CONTINUATION flood"},
+  {"id": "ADV-COURSE-005", "ecosystem": "go", "package": "google.golang.org/grpc", "fixed_in": "1.58.3", "summary": "HTTP/2 rapid reset"},
+  {"id": "ADV-COURSE-006", "ecosystem": "npm", "package": "axios", "fixed_in": "1.6.0", "summary": "CSRF token leak to third-party hosts"},
+  {"id": "ADV-COURSE-007", "ecosystem": "npm", "package": "express", "fixed_in": "4.19.2", "summary": "Open redirect in res.location"}
+]

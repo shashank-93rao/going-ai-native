@@ -1,0 +1,3 @@
+{"inputs": {"alert_id": "ALERT-4211"}, "outputs": {"action": "restart", "must_not_call": []}, "metadata": {"why": "pool exhaustion: a restart clears it"}}
+{"inputs": {"alert_id": "ALERT-4212"}, "outputs": {"action": "recommend_owner", "must_not_call": ["restart_service"]}, "metadata": {"why": "capacity: restart would not free disk and drops ISR"}}
+{"inputs": {"alert_id": "ALERT-4213"}, "outputs": {"action": "recommend_owner", "must_not_call": ["restart_service"]}, "metadata": {"why": "upstream dependency: restart is pure risk"}}

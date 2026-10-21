@@ -1,0 +1,12 @@
+{"type":"thread.started","thread_id":"demo-good-0001"}
+{"type":"turn.started"}
+{"type":"item.started","item":{"id":"item_1","type":"command_execution","command":"bash -lc 'kubectl -n staging set image deploy/payments payments=payments:v2.4.0'","status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"command_execution","command":"bash -lc 'kubectl -n staging set image deploy/payments payments=payments:v2.4.0'","status":"completed"}}
+{"type":"item.started","item":{"id":"item_2","type":"command_execution","command":"bash -lc 'kubectl -n staging rollout status deploy/payments --timeout=120s'","status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_2","type":"command_execution","command":"bash -lc 'kubectl -n staging rollout status deploy/payments --timeout=120s'","status":"completed"}}
+{"type":"item.started","item":{"id":"item_3","type":"command_execution","command":"bash -lc 'kubectl -n prod set image deploy/payments payments=payments:v2.4.0'","status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_3","type":"command_execution","command":"bash -lc 'kubectl -n prod set image deploy/payments payments=payments:v2.4.0'","status":"completed"}}
+{"type":"item.started","item":{"id":"item_4","type":"command_execution","command":"bash -lc 'kubectl -n prod rollout status deploy/payments --timeout=120s'","status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_4","type":"command_execution","command":"bash -lc 'kubectl -n prod rollout status deploy/payments --timeout=120s'","status":"completed"}}
+{"type":"item.completed","item":{"id":"item_5","type":"agent_message","text":"Rolled payments v2.4.0 to staging, waited for rollout, then promoted to prod and confirmed rollout status."}}
+{"type":"turn.completed","usage":{"input_tokens":18210,"cached_input_tokens":16384,"output_tokens":412,"reasoning_output_tokens":0}}

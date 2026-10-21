@@ -1,0 +1,12 @@
+# Reliability targets for the incident router: the climb's stopping criterion (see 07-the-march-of-nines.md).
+# Written BEFORE round 1. Targets are on the LOWER 95% bound, measured on the test split.
+system: incident-router
+unit: alert                     # also track: incident (all alerts in it routed correctly)
+metric: routed_to_owning_team
+measured_on: test split, clustered by incident, 3 repeats
+targets:
+  overall:      {lower_95_bound: 0.90}
+  easy:         {lower_95_bound: 0.97}
+  lookup:       {lower_95_bound: 0.95}   # has a tool; should be near-deterministic
+cost_ceiling_per_1k: 10.00
+stop_when: all targets met, OR 3 consecutive flat rounds (then re-scope), OR budget spent

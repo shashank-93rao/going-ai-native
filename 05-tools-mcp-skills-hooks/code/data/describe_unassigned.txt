@@ -1,0 +1,4 @@
+GROUP          TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+search-indexer catalog.updates 0          500100          512100          12000           -               -               -
+search-indexer catalog.updates 1          498000          509500          11500           -               -               -
+search-indexer catalog.updates 2          501200          502000          800             indexer-0-ab12  /10.0.4.2       indexer-0

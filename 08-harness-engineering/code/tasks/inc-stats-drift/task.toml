@@ -1,0 +1,17 @@
+id = "inc-stats-drift"
+kind = "incident"
+needs = ["tools/diagnose.py", "INVARIANTS.md"]
+prompt = '''
+ALERT [P2] customer-stats-drift
+  customer_stats.total_cents > SUM(orders.amount_cents) for 2 customers
+  first seen: 02:14 UTC   runbook: (none linked)
+Context from on-call: the outbox relay pod was OOM-killed at 02:13 and restarted.
+
+Logs from the incident window are in var/log/orders.jsonl.
+Find the root cause in this service, fix it, and make sure it cannot regress.
+'''
+
+[[inject]]
+file = "orders/consumer.py"
+find = '''(self.name, ev["event_id"]),'''
+replace = '''(self.name, f"{msg.partition}:{msg.offset}"),'''

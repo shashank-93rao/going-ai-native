@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.hypothesis/
+.DS_Store
+.env
+# runtime artifacts written by exercises
+*.cassette.jsonl
+traces.jsonl

@@ -1,0 +1,24 @@
+id = "inc-lost-cancellations"
+kind = "incident"
+needs = ["tools/diagnose.py"]
+prompt = '''
+INCIDENT (Sev 2): Support escalated orders that are CANCELLED in our database
+but that the fulfillment service never received a cancellation for, so they were
+shipped. Outbox lag has been 0 the whole time, so the relay believes it is caught up.
+There was broker instability between 09:00 and 09:20.
+
+Logs from that window are in var/log/orders.jsonl.
+Find the root cause, fix it, and add a regression test.
+'''
+
+[[inject]]
+file = "orders/outbox.py"
+find = '''conn.execute("UPDATE outbox SET published_at = ? WHERE id = ?", (time.time(), event_id))'''
+replace = '''conn.execute("UPDATE outbox SET published_at = ? WHERE aggregate_id = ?", (time.time(), aggregate_id))'''
+
+# A plausible wrong fix: the symptom is "lag says 0", so recompute lag differently.
+[[naive]]
+file = "orders/outbox.py"
+find = '''    return conn.execute("SELECT COUNT(*) FROM outbox WHERE published_at IS NULL").fetchone()[0]'''
+replace = '''    pending = conn.execute("SELECT COUNT(*) FROM outbox WHERE published_at IS NULL").fetchone()[0]
+    return pending  # TODO: lag may under-report after broker errors'''

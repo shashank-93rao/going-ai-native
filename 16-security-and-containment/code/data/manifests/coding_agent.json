@@ -1,0 +1,16 @@
+{
+  "agent": "issue-triage-coding-agent (naive)",
+  "servers": [
+    {"name": "github-mcp", "tools": [
+      {"name": "get_issue", "legs": ["untrusted"], "note": "anyone can file an issue on a public repo"},
+      {"name": "get_file_contents", "legs": ["private"], "note": "token can read private repos too"},
+      {"name": "create_pull_request", "legs": ["exfil"], "note": "a PR on a public repo is world-readable"},
+      {"name": "add_issue_comment", "legs": ["exfil"]}
+    ]},
+    {"name": "local", "tools": [
+      {"name": "bash", "legs": ["private", "untrusted", "exfil"],
+       "note": "reads env and ~/.aws, runs curl, reads whatever curl returns"},
+      {"name": "edit_file", "legs": []}
+    ]}
+  ]
+}

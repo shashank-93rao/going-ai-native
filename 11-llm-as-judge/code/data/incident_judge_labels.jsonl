@@ -1,0 +1,52 @@
+{"id": "INC-2291-s1", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 3,412 present and no contradicted scope or severity claim found."}
+{"id": "INC-2291-s2", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 3,412 present and no contradicted scope or severity claim found."}
+{"id": "INC-2291-s4", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 3,412 (or a fair rounding) not found."}
+{"id": "INC-2291-s5", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'all regions', contradicted by the facts."}
+{"id": "INC-2304-s1", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 1,184 present and no contradicted scope or severity claim found."}
+{"id": "INC-2304-s2", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 1,184 present and no contradicted scope or severity claim found."}
+{"id": "INC-2304-s3", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'all tiers', contradicted by the facts."}
+{"id": "INC-2304-s4", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 1,184 (or a fair rounding) not found."}
+{"id": "INC-2304-s5", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 1,184 present and no contradicted scope or severity claim found."}
+{"id": "INC-2304-s6", "split": "test", "human_label": "fail", "judge_label": "pass", "judge_critique": "Count 1,184 present and no contradicted scope or severity claim found."}
+{"id": "INC-2317-s1", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 9,870 present and no contradicted scope or severity claim found."}
+{"id": "INC-2317-s2", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 9,870 present and no contradicted scope or severity claim found."}
+{"id": "INC-2317-s3", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'double-charged', contradicted by the facts."}
+{"id": "INC-2317-s4", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 9,870 (or a fair rounding) not found."}
+{"id": "INC-2317-s5", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 9,870 (or a fair rounding) not found."}
+{"id": "INC-2317-s6", "split": "test", "human_label": "pass", "judge_label": "fail", "judge_critique": "Affected count 9,870 (or a fair rounding) not found."}
+{"id": "INC-2330-s1", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "States no customer impact."}
+{"id": "INC-2330-s2", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Does not state that customers were unaffected."}
+{"id": "INC-2330-s4", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Does not state that customers were unaffected."}
+{"id": "INC-2330-s5", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "States no customer impact."}
+{"id": "INC-2330-s6", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Does not state that customers were unaffected."}
+{"id": "INC-2342-s1", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 27,000 present and no contradicted scope or severity claim found."}
+{"id": "INC-2342-s2", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 27,000 present and no contradicted scope or severity claim found."}
+{"id": "INC-2342-s3", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'failed', contradicted by the facts."}
+{"id": "INC-2342-s5", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 27,000 present and no contradicted scope or severity claim found."}
+{"id": "INC-2342-s6", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 27,000 (or a fair rounding) not found."}
+{"id": "INC-2355-s1", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 640 present and no contradicted scope or severity claim found."}
+{"id": "INC-2355-s2", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 640 present and no contradicted scope or severity claim found."}
+{"id": "INC-2355-s3", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'partial', contradicted by the facts."}
+{"id": "INC-2355-s4", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'globally', contradicted by the facts."}
+{"id": "INC-2355-s5", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 640 (or a fair rounding) not found."}
+{"id": "INC-2368-s1", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 212 present and no contradicted scope or severity claim found."}
+{"id": "INC-2368-s3", "split": "test", "human_label": "pass", "judge_label": "fail", "judge_critique": "Affected count 212 (or a fair rounding) not found."}
+{"id": "INC-2368-s4", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 212 (or a fair rounding) not found."}
+{"id": "INC-2368-s5", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 212 present and no contradicted scope or severity claim found."}
+{"id": "INC-2368-s6", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 212 (or a fair rounding) not found."}
+{"id": "INC-2379-s1", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 48 present and no contradicted scope or severity claim found."}
+{"id": "INC-2379-s2", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'incorrect', contradicted by the facts."}
+{"id": "INC-2379-s3", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 48 present and no contradicted scope or severity claim found."}
+{"id": "INC-2379-s4", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 48 (or a fair rounding) not found."}
+{"id": "INC-2379-s5", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 48 (or a fair rounding) not found."}
+{"id": "INC-2379-s6", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 48 present and no contradicted scope or severity claim found."}
+{"id": "INC-2391-s1", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 18,300 present and no contradicted scope or severity claim found."}
+{"id": "INC-2391-s2", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 18,300 present and no contradicted scope or severity claim found."}
+{"id": "INC-2391-s3", "split": "test", "human_label": "fail", "judge_label": "pass", "judge_critique": "Count 18,300 present and no contradicted scope or severity claim found."}
+{"id": "INC-2391-s5", "split": "test", "human_label": "fail", "judge_label": "pass", "judge_critique": "Count 18,300 present and no contradicted scope or severity claim found."}
+{"id": "INC-2391-s6", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 18,300 present and no contradicted scope or severity claim found."}
+{"id": "INC-2403-s1", "split": "dev", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 1,050 present and no contradicted scope or severity claim found."}
+{"id": "INC-2403-s2", "split": "dev", "human_label": "fail", "judge_label": "fail", "judge_critique": "Summary claims 'all types', contradicted by the facts."}
+{"id": "INC-2403-s3", "split": "dev", "human_label": "pass", "judge_label": "fail", "judge_critique": "Affected count 1,050 (or a fair rounding) not found."}
+{"id": "INC-2403-s5", "split": "test", "human_label": "fail", "judge_label": "fail", "judge_critique": "Affected count 1,050 (or a fair rounding) not found."}
+{"id": "INC-2403-s6", "split": "test", "human_label": "pass", "judge_label": "pass", "judge_critique": "Count 1,050 present and no contradicted scope or severity claim found."}

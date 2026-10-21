@@ -1,0 +1,22 @@
+{"id": "q01", "question": "what command shows lag per partition for the invoice consumer group", "relevant": ["kafka-consumer-lag#diagnosis"]}
+{"id": "q02", "question": "invoice consumer keeps rebalancing every few minutes", "relevant": ["kafka-consumer-lag#diagnosis"]}
+{"id": "q03", "question": "is it safe to reset the consumer group offset to latest to clear the backlog", "relevant": ["kafka-consumer-lag#mitigation"]}
+{"id": "q04", "question": "how do I mitigate kafka consumer lag", "relevant": ["kafka-consumer-lag#mitigation"]}
+{"id": "q05", "question": "client creates a payment and the GET right after returns 404", "relevant": ["postgres-replication-lag#symptoms"]}
+{"id": "q06", "question": "cancel a long running analytics query that is blocking WAL replay on the replica", "relevant": ["postgres-replication-lag#diagnosis", "postgres-replication-lag#mitigation"]}
+{"id": "q07", "question": "flag to pin ledger reads to the primary database", "relevant": ["postgres-replication-lag#mitigation"]}
+{"id": "q08", "question": "gateway returning 504s from ledger-api", "relevant": ["api-5xx-spike#symptoms", "api-5xx-spike#diagnosis"]}
+{"id": "q09", "question": "open the circuit breaker for the fx rates dependency", "relevant": ["api-5xx-spike#mitigation"]}
+{"id": "q10", "question": "how do I undo a bad release", "relevant": ["deploy-rollback#procedure"]}
+{"id": "q11", "question": "can I roll back code if the release ran a schema migration", "relevant": ["deploy-rollback#procedure"]}
+{"id": "q12", "question": "pods evicted because the node is low on ephemeral-storage", "relevant": ["node-disk-pressure#symptoms"]}
+{"id": "q13", "question": "prune unused container images on a node", "relevant": ["node-disk-pressure#diagnosis", "node-disk-pressure#mitigation"]}
+{"id": "q14", "question": "x509 certificate has expired errors from partners", "relevant": ["tls-cert-expiry#symptoms"]}
+{"id": "q15", "question": "force cert-manager to renew the ledger-api certificate", "relevant": ["tls-cert-expiry#mitigation"]}
+{"id": "q16", "question": "customer got charged twice after a client retry", "relevant": ["redis-evictions#symptoms"]}
+{"id": "q17", "question": "which maxmemory policy should the idempotency cache use", "relevant": ["redis-evictions#diagnosis"]}
+{"id": "q18", "question": "services log no such host for internal svc names", "relevant": ["dns-resolution-failures#symptoms"]}
+{"id": "q19", "question": "scale coredns replicas", "relevant": ["dns-resolution-failures#mitigation"]}
+{"id": "q20", "question": "the box is out of space", "relevant": ["node-disk-pressure#symptoms"]}
+{"id": "q21", "question": "nobody can reach the database by name", "relevant": ["dns-resolution-failures#symptoms"]}
+{"id": "q22", "question": "how do I confirm the invoice backlog is draining after a fix", "relevant": ["kafka-consumer-lag#verification"]}

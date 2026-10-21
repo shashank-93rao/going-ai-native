@@ -1,0 +1,43 @@
+diff --git a/services/payments/idempotency.py b/services/payments/idempotency.py
+index 7a2e9c0..c41b8d2 100644
+--- a/services/payments/idempotency.py
++++ b/services/payments/idempotency.py
+@@ -21,6 +21,8 @@ class ChargeService:
+     def charge(self, key: str, amount_cents: int) -> ChargeResult:
+-        existing = self.store.get(self._request_id())
++        existing = self.store.get(key)
++        if existing is not None:
++            return existing
+diff --git a/services/payments/retry.py b/services/payments/retry.py
+new file mode 100644
+index 0000000..1e2f3a4
+--- /dev/null
++++ b/services/payments/retry.py
+@@ -0,0 +1,6 @@
++import tenacity
++
++
++@tenacity.retry(stop=tenacity.stop_after_attempt(5))
++def with_retries(fn, *args, **kwargs):
++    return fn(*args, **kwargs)
+diff --git a/requirements.txt b/requirements.txt
+index 11aa22b..33cc44d 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -8,0 +9 @@ psycopg[binary]==3.2.3
++tenacity==9.0.0
+diff --git a/services/payments/gateway.py b/services/payments/gateway.py
+index 5e5e5e5..6f6f6f6 100644
+--- a/services/payments/gateway.py
++++ b/services/payments/gateway.py
+@@ -40,3 +40,4 @@ class StripeGateway:
+-    def charge(self, amount_cents):
++    @with_retries
++    def charge(self, amount_cents):
+diff --git a/services/ledger/export.py b/services/ledger/export.py
+index 1010101..2020202 100644
+--- a/services/ledger/export.py
++++ b/services/ledger/export.py
+@@ -3,1 +3,1 @@
+-DEFAULT_PAGE = 100
++DEFAULT_PAGE = 500

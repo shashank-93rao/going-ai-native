@@ -1,0 +1,17 @@
+{
+  "agent": "issue-triage-coding-agent (contained)",
+  "servers": [
+    {"name": "github-mcp", "tools": [
+      {"name": "get_issue", "legs": ["untrusted"], "note": "still untrusted; we accept this leg"},
+      {"name": "get_file_contents", "legs": ["private"], "note": "token scoped to this one repo"},
+      {"name": "create_pull_request", "legs": ["exfil"],
+       "mitigation": {"exfil": "human_approval"}, "note": "draft PR, human marks ready"}
+    ]},
+    {"name": "sandbox", "tools": [
+      {"name": "bash", "legs": ["private", "untrusted", "exfil"],
+       "mitigation": {"exfil": "egress_allowlist", "private": "credential_proxy"},
+       "note": "no secrets in env; proxy allows pypi GET and one repo only"},
+      {"name": "edit_file", "legs": []}
+    ]}
+  ]
+}

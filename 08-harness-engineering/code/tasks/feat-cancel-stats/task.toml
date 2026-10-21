@@ -1,0 +1,45 @@
+id = "feat-cancel-stats"
+kind = "feature"
+needs = ["INVARIANTS.md"]
+prompt = '''
+The customer_stats read model ignores cancellations. Make `StatsConsumer` handle
+`OrderCancelled`: decrement that customer's `order_count` by 1 and `total_cents`
+by the cancelled order's amount.
+
+Done means `python tools/check.py` passes and the new behaviour has tests.
+'''
+
+[[solution]]
+file = "orders/consumer.py"
+find = '''
+                    (ev["customer_id"], ev["amount_cents"]),
+                )
+'''
+replace = '''
+                    (ev["customer_id"], ev["amount_cents"]),
+                )
+            elif ev["type"] == "OrderCancelled":
+                conn.execute(
+                    "UPDATE customer_stats SET order_count = order_count - 1, "
+                    "total_cents = total_cents - ? WHERE customer_id = ?",
+                    (ev["amount_cents"], ev["customer_id"]),
+                )
+'''
+
+[[solution]]
+file = "tests/test_cancel_stats.py"
+create = '''
+from orders import api
+from orders.broker import FakeBroker
+from orders.consumer import drain, get_stats
+from orders.db import connect
+
+
+def test_cancel_decrements_stats():
+    conn, broker = connect(), FakeBroker()
+    a = api.create_order(conn, "k1", "c1", 100)
+    api.create_order(conn, "k2", "c1", 250)
+    api.cancel_order(conn, "k3", a["order_id"])
+    drain(conn, broker)
+    assert get_stats(conn, "c1") == (1, 250)
+'''

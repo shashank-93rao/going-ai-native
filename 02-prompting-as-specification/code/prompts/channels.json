@@ -1,0 +1,5 @@
+{
+  "incident_summary": {"stable": 2},
+  "log_triage": {"stable": 2},
+  "pr_review": {"stable": 2}
+}

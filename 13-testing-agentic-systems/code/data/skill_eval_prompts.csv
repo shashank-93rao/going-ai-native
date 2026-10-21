@@ -1,0 +1,4 @@
+id,should_trigger,prompt,trace
+deploy-01,true,"Use the $promote-release skill to ship payments v2.4.0 to prod.",codex_trace_good.jsonl
+deploy-02,true,"payments v2.4.0 is approved, get it to prod",codex_trace_bad.jsonl
+deploy-03,false,"Why is payments logging config warnings in staging? Don't change anything.",codex_trace_negative_control.jsonl

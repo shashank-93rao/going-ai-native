@@ -1,0 +1,22 @@
+id = "inc-409-spike"
+kind = "incident"
+needs = ["tools/diagnose.py"]
+prompt = '''
+ALERT [P2] api-409-rate
+  create_order 409 (IdempotencyConflict) rate 14% over 15m (baseline < 0.1%)
+Context: the mobile client's retry policy is "retry after 60s with the same
+Idempotency-Key and the same body". Nothing changed on the client this week.
+
+Logs are in var/log/orders.jsonl. Find the root cause and fix it.
+'''
+
+[[inject]]
+file = "orders/api.py"
+find = '''    rh = request_hash("create_order", body)'''
+replace = '''    rh = request_hash("create_order", {**body, "window": int(_now() // 60)})  # dedupe window'''
+
+# The plausible wrong fix: make the alert go away by tolerating conflicts.
+[[naive]]
+file = "orders/api.py"
+find = '''        raise IdempotencyConflict(f"Idempotency-Key {key!r} was used with a different request")'''
+replace = '''        return json.loads(row[1])  # tolerate retries whose hash drifted'''

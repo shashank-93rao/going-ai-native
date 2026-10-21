@@ -1,0 +1,15 @@
+{
+  "name": "v6b-effort-high",
+  "model": "claude-sonnet-5-5",
+  "effort": "high",
+  "sections": [
+    "base",
+    "queue_definitions",
+    "tiebreak"
+  ],
+  "tools": [
+    "lookup_owner"
+  ],
+  "extra_prompt": "",
+  "max_tokens": 1024
+}

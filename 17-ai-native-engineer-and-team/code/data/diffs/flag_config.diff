@@ -1,0 +1,9 @@
+diff --git a/config/flags/prod.yaml b/config/flags/prod.yaml
+index 1a2b3c4..5d6e7f8 100644
+--- a/config/flags/prod.yaml
++++ b/config/flags/prod.yaml
+@@ -4,3 +4,3 @@ flags:
+   batch_append_enabled: true
+-  read_index_reads: false
++  read_index_reads: true
+   snapshot_compression: zstd

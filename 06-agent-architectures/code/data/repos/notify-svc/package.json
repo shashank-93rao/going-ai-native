@@ -1,0 +1,10 @@
+{
+  "name": "notify-svc",
+  "version": "3.4.0",
+  "dependencies": {
+    "express": "4.18.2",
+    "kafkajs": "2.2.4",
+    "axios": "1.6.0",
+    "jsonwebtoken": "9.0.2"
+  }
+}
