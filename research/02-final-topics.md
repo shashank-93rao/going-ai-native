@@ -24,11 +24,12 @@ Notation: **[new]** marks a module or section added after research. **[↑]** ma
 | 15 | **Observability & production** | Use tracing data models, online evals, drift and sentiment monitoring. Manage cost and latency budgets, routing and caching. Treat prompt changes as deploys. Build durable agent infrastructure | SRE: SLOs, canaries, rollbacks | Anthropic agent observability / Managed Agents; LangSmith; Hamel |
 | 16 | **Security & containment** [↑] | Defend against prompt injection and the lethal trifecta. Put containment first: sandboxes, egress-as-capability, credential proxies, permission classifiers with FPR/FNR. Watch for reward hacking and sycophancy. Turn red-team findings into regression tests. Cover the basics of governance | Zero trust, blast-radius reduction | Willison; Anthropic containment / auto mode / unintended actions; Hamel L7 |
 | 17 | **The AI-native engineer & team** | Do code review at agent volume: risk tiers, verifier voting, REVIEW.md. Manage cognitive debt. Measure team productivity honestly. Hire for and evaluate AI-native skills. Position your career | Running an org of unreliable but fast workers | Anthropic code review / source control; Stripe Minions; Spotify Honk; Ronacher; METR |
+| 18 | **RAG systems** [new, added after review] | Build and run retrieval as a production system: chunking and embeddings, ANN indexes (HNSW/IVF), hybrid search with RRF and reranking, query rewriting and agentic RAG, CDC-driven ingestion with idempotent upserts, deletes and re-embedding migrations, permission-aware retrieval, and stage-by-stage RAG evals | Database indexes, CDC, dual-write migrations | Anthropic Contextual Retrieval; Jason Liu; HNSW and RRF papers; RAGAS; GraphRAG |
 | 99 | **Capstone** | **A:** build a coding or ops agent. Write its eval suite, calibrate a judge, hill-climb it with error bars, run it in a governed loop, and ship it with guardrails and tracing. **B (variant):** hill-climb an LLM data pipeline (DocETL-style), with no agent required | — | Combines all modules |
 
 ## Suggested learning path
 - **Core track** (do these first, ~60% of the value): 00 → 01 → 04 → 07 → 10 → 11 → 12 → 13 → 14
-- **Builder track:** 02 → 03 → 05 → 06 → 08 → 09
+- **Builder track:** 02 → 03 → 18 → 05 → 06 → 08 → 09
 - **Production track:** 15 → 16 → 17 → 99
 
 ## Per-module format (Phase C)

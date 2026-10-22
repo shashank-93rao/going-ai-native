@@ -2,7 +2,7 @@
 
 ## The idea
 
-The course has 19 modules, and each answers one version of the thesis question: *what can be checked here, how do you make it checkable, and how do you use the check?* This file maps all of them, gives the suggested tracks, and shows how to route through the material for a concrete goal.
+The course has 20 modules, and each answers one version of the thesis question: *what can be checked here, how do you make it checkable, and how do you use the check?* This file maps all of them, gives the suggested tracks, and shows how to route through the material for a concrete goal.
 
 ## Why it matters
 
@@ -32,12 +32,13 @@ The course is large, roughly 80–110 files. Read it front to back and you'll sp
 | 15 | [Observability & production](../15-observability-and-production/README.md) | Production | Is it still working in prod, at what cost and latency? | SRE: SLOs, canaries, rollbacks |
 | 16 | [Security & containment](../16-security-and-containment/README.md) | Production | What can a wrong or hijacked agent reach, and is the blast radius bounded? | Zero trust, blast-radius reduction |
 | 17 | [The AI-native engineer & team](../17-ai-native-engineer-and-team/README.md) | Production | How do review, measurement and hiring work at agent volume? | Running an org of fast, unreliable workers |
+| 18 | [RAG systems](../18-rag-systems/README.md) | Builder | Is retrieval fresh, permission-safe and measured stage by stage, from ingest to citation? | Database indexes, CDC pipelines, dual-write migrations |
 | 99 | [Capstone](../99-capstone/README.md) | Production | Can you take one system through every check above? A: a coding or ops agent. B: an LLM data pipeline | All of the above |
 
 ### Suggested tracks
 
 - **Core track** (about 60% of the value, do it first): 00 → 01 → 04 → 07 → 10 → 11 → 12 → 13 → 14
-- **Builder track:** 02 → 03 → 05 → 06 → 08 → 09
+- **Builder track:** 02 → 03 → 18 → 05 → 06 → 08 → 09
 - **Production track:** 15 → 16 → 17 → 99
 
 ```mermaid
@@ -46,7 +47,7 @@ flowchart LR
     M00[00 Orientation] --> M01[01 LLMs] --> M04[04 Workflows] --> M07[07 Loops] --> M10[10 Evals] --> M11[11 Judge] --> M12[12 Hill-climb] --> M13[13 Testing] --> M14[14 Steering]
   end
   subgraph Builder
-    M02[02 Prompt spec] --> M03[03 Context] --> M05[05 Tools] --> M06[06 Architectures] --> M08[08 Harness] --> M09[09 Frameworks]
+    M02[02 Prompt spec] --> M03[03 Context] --> M18[18 RAG] --> M05[05 Tools] --> M06[06 Architectures] --> M08[08 Harness] --> M09[09 Frameworks]
   end
   subgraph Production
     M15[15 Observability] --> M16[16 Security] --> M17[17 Team] --> M99[99 Capstone]

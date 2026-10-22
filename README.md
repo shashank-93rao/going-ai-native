@@ -38,11 +38,12 @@ The parts of software work that agents automate fastest are the parts that can b
 | 15 | [Observability & production](15-observability-and-production/README.md) | Production |
 | 16 | [Security & containment](16-security-and-containment/README.md) | Production |
 | 17 | [The AI-native engineer & team](17-ai-native-engineer-and-team/README.md) | Production |
+| 18 | [RAG systems: retrieval at production scale](18-rag-systems/README.md) | Builder |
 | 99 | [Capstone (A: ops agent, B: LLM data pipeline)](99-capstone/README.md) | Production |
 
 ### Suggested paths
 - **Core track** (about 60% of the value, do it first): 00 → 01 → 04 → 07 → 10 → 11 → 12 → 13 → 14
-- **Builder track:** 02 → 03 → 05 → 06 → 08 → 09
+- **Builder track:** 02 → 03 → 18 → 05 → 06 → 08 → 09
 - **Production track:** 15 → 16 → 17 → 99
 
 Each module is a folder:

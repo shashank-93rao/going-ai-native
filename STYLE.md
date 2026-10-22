@@ -105,4 +105,4 @@ Each exercise also carries a time estimate. Mix offline exercises (FakeClient, n
 - No emoji. No "In today's rapidly evolving landscape".
 
 ## Module directory names
-00-orientation, 01-llms-for-systems-engineers, 02-prompting-as-specification, 03-context-engineering, 04-agentic-coding-workflows, 05-tools-mcp-skills-hooks, 06-agent-architectures, 07-loops, 08-harness-engineering, 09-frameworks-langchain-langgraph, 10-evals-fundamentals, 11-llm-as-judge, 12-hill-climbing, 13-testing-agentic-systems, 14-steering-and-guardrails, 15-observability-and-production, 16-security-and-containment, 17-ai-native-engineer-and-team, 99-capstone
+00-orientation, 01-llms-for-systems-engineers, 02-prompting-as-specification, 03-context-engineering, 04-agentic-coding-workflows, 05-tools-mcp-skills-hooks, 06-agent-architectures, 07-loops, 08-harness-engineering, 09-frameworks-langchain-langgraph, 10-evals-fundamentals, 11-llm-as-judge, 12-hill-climbing, 13-testing-agentic-systems, 14-steering-and-guardrails, 15-observability-and-production, 16-security-and-containment, 17-ai-native-engineer-and-team, 18-rag-systems, 99-capstone

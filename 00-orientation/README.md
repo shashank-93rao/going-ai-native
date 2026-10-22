@@ -22,7 +22,7 @@ And you can't trust your sense of which way you're erring. In METR's 2025 trial,
 - [ ] Place a task on the autonomy dial from its oracle strength, reversibility, containment and familiarity, and list the guards that mode needs
 - [ ] Reconcile METR's slowdown with Stripe, Spotify and Anthropic's reported gains using the five-question audit
 - [ ] Run a randomized personal A/B with an append-only log, and read its estimate, interval and power line correctly
-- [ ] Pick a route through the 19 modules for a concrete goal
+- [ ] Pick a route through the 20 modules for a concrete goal
 
 ## Reading order
 1. [01-verifiability-thesis](01-verifiability-thesis.md): Software 3.0, specify vs verify, vibe coding vs agentic engineering, the verifiability scorecard
@@ -30,7 +30,7 @@ And you can't trust your sense of which way you're erring. In METR's 2025 trial,
 3. [03-autonomy-dial](03-autonomy-dial.md): task × oracle strength → chat / pair / supervised agent / loop / scheduled
 4. [04-honest-evidence](04-honest-evidence.md): METR 2025 and 2026 vs company reports, and why both are true
 5. [05-measure-yourself](05-measure-yourself.md): the personal randomized A/B, its log format and statistics
-6. [06-course-map](06-course-map.md): all 19 modules, the tracks, and routing for a goal
+6. [06-course-map](06-course-map.md): all 20 modules, the tracks, and routing for a goal
 - [examples.md](examples.md), [exercises.md](exercises.md), [references.md](references.md), [code/](code/README.md)
 
 ## Prerequisites

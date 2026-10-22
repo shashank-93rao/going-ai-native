@@ -49,7 +49,7 @@ Where the analogy breaks matters more than where it holds:
 3. [03-long-runs-compaction-reset-log.md](03-long-runs-compaction-reset-log.md): compaction vs a fresh reset vs a queryable log, and the disagreement inside Anthropic's material.
 4. [04-cache-prefix-discipline.md](04-cache-prefix-discipline.md): prompt caching as an append-only-log problem.
 5. [05-context-files.md](05-context-files.md): CLAUDE.md/AGENTS.md as a map, not a manual. Worked example: 600 lines down to 90.
-6. [06-retrieval-agentic-search-vs-rag.md](06-retrieval-agentic-search-vs-rag.md): grep vs embeddings, contextual retrieval, and retrieval and grounding evals. Worked example: an on-call runbook assistant.
+6. [06-retrieval-agentic-search-vs-rag.md](06-retrieval-agentic-search-vs-rag.md): grep vs embeddings, contextual retrieval, and retrieval and grounding evals. Worked example: an on-call runbook assistant. For RAG as a production system (indexes, ingestion, freshness, ACLs), go on to [Module 18](../18-rag-systems/README.md).
 7. [07-memory-taxonomy.md](07-memory-taxonomy.md): semantic, episodic and procedural memory, and where each one lives.
 - [examples.md](examples.md), [exercises.md](exercises.md), [references.md](references.md), [code/](code/)
 
